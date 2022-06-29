@@ -4,6 +4,7 @@
 {/if}
 {include file="productFilterForm.tpl"}
 {include file="countryFilterForm.tpl"}
+{include file="advancedFilterForm.tpl"}
     <table>
         <h3>{$title} <a href="table">>🏠<</a></h3>
         <h4 id="modifyError"></h4>
@@ -26,4 +27,5 @@
             {/foreach}
         </tbody>
     </table>
+    <script type="text/javascript" src="js/app.js"></script>
 {include file="footer.tpl"}

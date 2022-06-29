@@ -4,6 +4,13 @@ let baseURL = document.querySelector('#baseURL').href;
 
 //catalogo.html
 
+let advancedFilterForm = document.querySelector('#advancedFilterForm');
+advancedFilterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    assignSemanticURL(advancedFilterForm);
+});
+
 let productFilterForm = document.querySelector('#productFilterForm');
 productFilterForm.addEventListener('submit', function(e){
     e.preventDefault();

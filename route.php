@@ -43,6 +43,10 @@ switch ($params[0]) {
         $productsController = new ProductsController();
         $productsController->showProducts(null, $params[1]);
         break;
+    case 'advancedFilter':
+        $productsController = new ProductsController();
+        $productsController->showProducts($params[1], $params[2], $params[3]);
+        break;
     case 'add-product':
         $productsController = new ProductsController();
         $productsController->addProduct($params[1], $params[2], $params[3]);
