@@ -34,14 +34,12 @@ class UsersController
 
     public function reLoginIfNotAdmin()
     {
-        $id = $_SESSION['USER_ID'];
         $email = $_SESSION['USER_EMAIL'];
         $admin = $_SESSION['USER_ADMIN'];
 
         $user = $this->model->getUser($email);
 
-        //si cambio el admin entonce reLogueamos
-        if (($user->admin != $admin) && ($user->id == $id)) {
+        if (($admin != $user->admin)) {
             $this->authHelper->login($user);
             header("Location: " . BASE_URL);
         } else {
