@@ -5,7 +5,7 @@ class UserModel
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_zipllas;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_foods;charset=utf8', 'root', '');
     }
 
     function getUser($email)
@@ -14,6 +14,12 @@ class UserModel
         $query->execute([$email]);
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;
+    }
+
+    function insertUser($email, $password)
+    {
+        $query = $this->db->prepare('INSERT INTO users(id, email, password) VALUES (NULL, ?, ?)');
+        $query->execute([$email,$password]);
     }
 
     function getUsers()

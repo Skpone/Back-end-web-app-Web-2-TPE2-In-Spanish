@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-29 05:02:07
+/* Smarty version 4.1.1, created on 2022-06-29 19:02:15
   from 'C:\xampp\htdocs\projects\TPE2\templates\tableProducts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62bbc0af0f3624_74741349',
+  'unifunc' => 'content_62bc85976b2518_91900755',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ca39fc3934488ccb0d542357b2ba5111cc212080' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projects\\TPE2\\templates\\tableProducts.tpl',
-      1 => 1656471691,
+      1 => 1656471757,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_62bbc0af0f3624_74741349 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bc85976b2518_91900755 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ((isset($_SESSION['USER_ID']))) {?>
     <?php $_smarty_tpl->_subTemplateRender("file:tableForm.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -39,7 +39,7 @@ $_smarty_tpl->_subTemplateRender("file:countryFilterForm.tpl", $_smarty_tpl->cac
         <h4 id="modifyError"></h4>
         <thead>
             <th>producto</th>
-            <th>categoria</th>
+            <th>país</th>
             <th>precio</th>
         </thead>
         <tbody>

@@ -19,9 +19,17 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->showLogin();
         break;
-    case 'verify':
+    case 'verifyLogin':
         $authController = new AuthController();
         $authController->login();
+        break;
+    case 'register':
+        $authController = new Authcontroller();
+        $authController->showRegister();
+        break;
+    case 'verifyRegister':
+        $authController = new AuthController();
+        $authController->register();
         break;
     case 'table':
         $productsController = new ProductsController();

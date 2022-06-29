@@ -15,4 +15,10 @@ class AuthView
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/formLogin.tpl');
     }
+
+    function showFormRegister($error = null)
+    {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/formRegister.tpl');
+    }
 }

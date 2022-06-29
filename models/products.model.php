@@ -5,7 +5,7 @@ class ProductsModel
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_zipllas;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_foods;charset=utf8', 'root', '');
     }
 
     function getAllProducts()
