@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-{if isset($smarty.session.USER_ID)}
+{if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}
     {include file="tableForm.tpl"}
 {/if}
 {include file="productFilterForm.tpl"}
@@ -19,7 +19,7 @@
                     <td>{$product->product}</td>
                     <td>{$product->country}</td>
                     <td>{$product->price}</td>
-                    {if isset($smarty.session.USER_ID)}
+                    {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}
                         <td><button class="modifyBtns" id="{$product->id}">Editar</button></td>
                         <td><a href="deleteProduct/{$product->id}">Borrar</a></td>
                     {/if}
