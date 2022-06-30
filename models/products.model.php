@@ -19,6 +19,16 @@ class ProductsModel
         return $products;
     }
 
+    function getProductByID($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM products WHERE id = ?');
+        $query->execute([$id]);
+
+        $products = $query->fetch(PDO::FETCH_OBJ);
+
+        return $product;
+    }
+
     function getAllProductsByProduct($product)
     {
         $query = $this->db->prepare('SELECT * FROM products WHERE product = ?');
@@ -54,7 +64,7 @@ class ProductsModel
         $query = $this->db->prepare('INSERT INTO products(product, country, price) VALUES (?, ?, ?)');
         $query->execute([$product, $country, $price]);
 
-        //return $this->db->lastInsertId();
+        return $this->db->lastInsertId();
     }
 
     function modifyProduct($id, $product, $country, $price)
