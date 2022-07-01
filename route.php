@@ -35,14 +35,6 @@ switch ($params[0]) {
         $productsController = new ProductsController();
         $productsController->showProducts();
         break;
-    case 'filterCountry':
-        $productsController = new ProductsController();
-        $productsController->showProducts(null, $params[1]);
-        break;
-    case 'advancedFilter':
-        $productsController = new ProductsController();
-        $productsController->showProducts($params[1], $params[2], $params[3], $params[4], $params[5]);
-        break;
     case 'usersList':
         $usersController = new UsersController();
         $usersController->showUsers();

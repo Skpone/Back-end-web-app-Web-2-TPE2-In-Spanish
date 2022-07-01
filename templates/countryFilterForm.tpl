@@ -1,4 +1,4 @@
-<form id="countryFilterForm" action="filterCountry">
+<form id="countryFilterForm">
     <label>Filtrar por país:</label><br>
     <select name="params" required>
         <option></option>

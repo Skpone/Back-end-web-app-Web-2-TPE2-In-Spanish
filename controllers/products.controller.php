@@ -17,16 +17,8 @@ class ProductsController
         $this->authHelper = new AuthHelper();
     }
 
-    public function showProducts($product = null, $type = null, $country = null, $ingredients = null, $price = null)
+    public function showProducts()
     {
-        if($product && $type && $country && $ingredients && $price){
-            $products = $this->model->getAllProductsByAdvancedSearch($product, $type, $country, $ingredients, $price);
-        } else if ($country) {
-            $products = $this->model->getAllProductsByCountry($country);
-        } else {
-            $products = $this->model->getAllProducts();
-        }
-
-        $this->view->showProducts($products);
+        $this->view->showProducts();
     }
 }

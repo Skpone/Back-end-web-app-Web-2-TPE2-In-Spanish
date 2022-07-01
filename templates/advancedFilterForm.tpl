@@ -1,9 +1,13 @@
-<form id="advancedFilterForm" action="advancedFilter">
+<form id="advancedFilterForm">
     <div>
         <label>Filtro avanzado</label><br>
     </div>
     <div>
         <label>Producto:</label><br>
+        <input type="text" name="params" required>    
+    </div>
+    <div>
+        <label>Tipo:</label><br>
         <input type="text" name="params" required>    
     </div>
     <div>
@@ -14,6 +18,10 @@
             <option value="italia">Italia</option>
             <option value="china">China</option>
         </select>
+    </div>
+    <div>
+        <label>Ingredientes:</label><br>
+        <textarea name="params"></textarea>
     </div>
     <div>
         <label>Precio:</label><br>

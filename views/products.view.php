@@ -8,9 +8,8 @@ class ProductsView {
         $this->smarty = new Smarty();
     }
 
-    function showProducts($products){
+    function showProducts(){
         $this->smarty->assign('title', 'Lista de Productos');
-        $this->smarty->assign('products', $products); 
 
         $this->smarty->display('templates/tableProductsCSR.tpl');
     }

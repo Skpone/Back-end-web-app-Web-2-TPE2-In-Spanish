@@ -25,6 +25,13 @@ countryFilterForm.addEventListener('submit', function(e){
     getProductsByCountry(countryFilterForm);
 });
 
+let tableForm = document.querySelector('#tableForm');
+tableForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    addProduct(tableForm);
+});
+
 //catalogo.html
 
 //vue
@@ -37,8 +44,100 @@ let app = new Vue({
         title: 'Lista de Comidas',
         description: 'Los mejores platos de cada país en un solo lugar!',
         products: [],
-    },  
+    },
+    methods: {
+        modifyProduct: async function (e) {
+            modifyProduct(tableForm, e);
+        },
+        deleteProduct: async function (e) {
+            deleteProduct(e);
+        },
+    },
 })
+
+async function addProduct (form) {
+
+    //obtenemos todos los datos del form
+    let formData = new FormData(form);
+    let params = formData.getAll('params');
+    let product = {
+        product: params[0],
+        type: params[1],
+        country: params[2],
+        ingredients: params[3],
+        price: params[4]
+    }
+
+    try {
+            let response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+
+        if (response.ok) {
+            //actualiza si se modificó
+            getProducts();
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function modifyProduct(form, e) {
+    e.preventDefault();
+    //id del botón donde hicimos click
+    let id = e.target.getAttribute('data-id');
+
+    //obtenemos todos los datos del form
+    let formData = new FormData(form);
+    let params = formData.getAll('params');
+    let product = {
+        product: params[0],
+        type: params[1],
+        country: params[2],
+        ingredients: params[3],
+        price: params[4]
+    }
+
+    try {
+            let response = await fetch(API_URL + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+
+        if (response.ok) {
+            //actualiza si se modificó
+            getProducts();
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function deleteProduct(e) {
+    try {
+        e.preventDefault();
+        let id = e.target.getAttribute('data-id');
+        let response = await fetch(API_URL + id, {
+            method: 'DELETE',
+        })
+
+        if (response.ok) {
+            //actualiza si se eliminó
+            getProducts();
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 async function getProductsByAdvancedSearch(form) {
 
