@@ -1,6 +1,10 @@
-<form id="tableForm" action="add-product">
+<form id="tableForm">
     <div>
         <label>Nombre Producto:</label><br>
+        <input type="text" name="params" required>    
+    </div>
+    <div>
+        <label>Tipo:</label><br>
         <input type="text" name="params" required>    
     </div>
     <div>
@@ -11,6 +15,10 @@
             <option value="italia">Italia</option>
             <option value="china">China</option>
         </select>
+    </div>
+    <div>
+        <label>Ingredientes:</label><br>
+        <textarea name="params"></textarea>
     </div>
     <div>
         <label>Precio:</label><br>

@@ -17,10 +17,10 @@ class ProductsController
         $this->authHelper = new AuthHelper();
     }
 
-    public function showProducts($product = null, $country = null, $price = null)
+    public function showProducts($product = null, $type = null, $country = null, $ingredients = null, $price = null)
     {
-        if($product && $country && $price){
-            $products = $this->model->getAllProductsByAdvancedSearch($product,$country,$price);
+        if($product && $type && $country && $ingredients && $price){
+            $products = $this->model->getAllProductsByAdvancedSearch($product, $type, $country, $ingredients, $price);
         }else if ($product) {
             $products = $this->model->getAllProductsByProduct($product);
         } else if ($country) {
@@ -31,28 +31,4 @@ class ProductsController
 
         $this->view->showProducts($products);
     }
-
-    function addProduct($product, $country, $price)
-    {
-        $this->model->insertProduct($product, $country, $price);
-
-        header("Location: " . BASE_URL);
-    }
-
-    function modifyProduct($id, $product, $country, $price)
-    {
-        $this->model->modifyProduct($id, $product, $country, $price);
-        header("Location: " . BASE_URL);
-    }
-
-    function deleteProduct($id)
-    {
-        $this->model->deleteProduct($id);
-        header("Location: " . BASE_URL);
-    }
-    //para cuando agregue input para modificar `products` (hacerlo cuando ya tenga seccion de admins)
-    /*
-    function getProducts($product) { //filtrar x nombre
-        //hacerlo una vez q obtenga el input y lo meta en la url con el js
-    }*/
 }

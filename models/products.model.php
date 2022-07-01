@@ -49,28 +49,28 @@ class ProductsModel
         return $products;
     }
 
-    function getAllProductsByAdvancedSearch($product,$country,$price)
+    function getAllProductsByAdvancedSearch($product, $type, $country, $ingredients, $price)
     {
-        $query = $this->db->prepare('SELECT * FROM products WHERE product = ? && country = ? && price = ?');
-        $query->execute([$product, $country, $price]);
+        $query = $this->db->prepare('SELECT * FROM products WHERE product = ? && type = ? && country = ? && ingredients = ? && price = ?');
+        $query->execute([$product, $type, $country, $ingredients, $price]);
 
         $products = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $products;
     }
 
-    function insertProduct($product, $country, $price)
+    function insertProduct($product, $type, $country, $ingredients, $price)
     {
-        $query = $this->db->prepare('INSERT INTO products(product, country, price) VALUES (?, ?, ?)');
-        $query->execute([$product, $country, $price]);
+        $query = $this->db->prepare('INSERT INTO products(product, type, country, ingredients, price) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$product, $type, $country, $ingredients, $price]);
 
         return $this->db->lastInsertId();
     }
 
-    function modifyProduct($id, $product, $country, $price)
+    function modifyProduct($id, $product, $type, $country, $ingredients, $price)
     {
-        $query = $this->db->prepare('UPDATE `products` SET `product` = ?,`country` = ?,`price` = ? WHERE `products`.`id` = ?');
-        $query->execute([$product, $country, $price, $id]);
+        $query = $this->db->prepare('UPDATE `products` SET `product` = ?,`type` = ?,`country` = ?,`ingredients` = ?,`price` = ? WHERE `products`.`id` = ?');
+        $query->execute([$product, $type, $country, $ingredients, $price, $id]);
     }
 
     function deleteProduct($id)

@@ -45,19 +45,7 @@ switch ($params[0]) {
         break;
     case 'advancedFilter':
         $productsController = new ProductsController();
-        $productsController->showProducts($params[1], $params[2], $params[3]);
-        break;
-    case 'add-product':
-        $productsController = new ProductsController();
-        $productsController->addProduct($params[1], $params[2], $params[3]);
-        break;
-    case 'modifyProduct':
-        $productsController = new ProductsController();
-        $productsController->modifyProduct($params[1], $params[2], $params[3], $params[4]);
-        break;
-    case 'deleteProduct':
-        $productsController = new ProductsController();
-        $productsController->deleteProduct($params[1]);
+        $productsController->showProducts($params[1], $params[2], $params[3], $params[4], $params[5]);
         break;
     case 'usersList':
         $usersController = new UsersController();

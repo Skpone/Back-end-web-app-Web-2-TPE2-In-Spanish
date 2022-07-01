@@ -12,6 +12,6 @@ class ProductsView {
         $this->smarty->assign('title', 'Lista de Productos');
         $this->smarty->assign('products', $products); 
 
-        $this->smarty->display('templates/tableProducts.tpl');
+        $this->smarty->display('templates/tableProductsCSR.tpl');
     }
 }

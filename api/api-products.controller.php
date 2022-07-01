@@ -55,10 +55,12 @@ class ApiProductsController {
         $data = $this->getBody();
 
         $product = $data->product;
+        $type = $data->type;
         $country = $data->country;
+        $ingredients = $data->ingredients;
         $price = $data->price;
 
-        $id = $this->model->insertProduct($product, $country, $price);
+        $id = $this->model->insertProduct($product, $type, $country, $ingredients, $price);
         
         $product = $this->model->getProductByID($id);
         if ($product)
@@ -76,11 +78,13 @@ class ApiProductsController {
         $data = $this->getBody();
 
         $product = $data->product;
+        $type = $data->type;
         $country = $data->country;
+        $ingredients = $data->ingredients;
         $price = $data->price;
 
         if ($product) {
-            $this->model->modifyProduct($id, $product, $country, $price);
+            $this->model->modifyProduct($id, $product, $type, $country, $ingredients, $price);
             $this->view->response("Product modified successfully.");
         } else
             $this->view->response("Product id={$id} doesn't exist", 404);
