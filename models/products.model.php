@@ -29,36 +29,6 @@ class ProductsModel
         return $product;
     }
 
-    function getAllProductsByProduct($product)
-    {
-        $query = $this->db->prepare('SELECT * FROM products WHERE product = ?');
-        $query->execute([$product]);
-
-        $products = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $products;
-    }
-
-    function getAllProductsByCountry($country)
-    {
-        $query = $this->db->prepare('SELECT * FROM products WHERE country = ?');
-        $query->execute([$country]);
-
-        $products = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $products;
-    }
-
-    function getAllProductsByAdvancedSearch($product, $type, $country, $ingredients, $price)
-    {
-        $query = $this->db->prepare('SELECT * FROM products WHERE product = ? && type = ? && country = ? && ingredients = ? && price = ?');
-        $query->execute([$product, $type, $country, $ingredients, $price]);
-
-        $products = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $products;
-    }
-
     function insertProduct($product, $type, $country, $ingredients, $price)
     {
         $query = $this->db->prepare('INSERT INTO products(product, type, country, ingredients, price) VALUES (?, ?, ?, ?, ?)');
@@ -78,17 +48,5 @@ class ProductsModel
         $query = $this->db->prepare('DELETE FROM products WHERE id=?');
         $query->execute([$id]);
     }
-
-    //esto de abajo lo logro con hacer un input para q funque (con js) (es para filtrar)
-    /*
-        function getProduct($id) {
-
-            $query = $this->db->prepare('SELECT * FROM products WHERE id = ?');
-            $query->execute([$id]);
-
-            return $query->fetch(PDO::FETCH_OBJ);
-        }*/
-
-    // hacer un update_price(?
-
+    
 }

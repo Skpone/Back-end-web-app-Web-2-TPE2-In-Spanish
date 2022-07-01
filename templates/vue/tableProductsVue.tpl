@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                     <tr v-for="product in products">
-                        <td>{{product.product}}</td>
+                        <td><a :href="`productDetails/${product.id}`">{{product.product}}</a></td>
                         <td>{{product.type}}</td>
                         <td>{{product.country}}</td>
                         <td>{{product.ingredients}}</td>

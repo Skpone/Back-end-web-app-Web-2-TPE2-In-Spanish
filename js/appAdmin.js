@@ -1,7 +1,5 @@
 "use strict";
 
-let baseURL = document.querySelector('#baseURL').href;
-
 //catalogo.html
 
 let advancedFilterForm = document.querySelector('#advancedFilterForm');

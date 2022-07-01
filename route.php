@@ -35,6 +35,10 @@ switch ($params[0]) {
         $productsController = new ProductsController();
         $productsController->showProducts();
         break;
+    case 'productDetails':
+        $productsController = new ProductsController();
+        $productsController->showProductDetails($params[1]);
+        break;
     case 'usersList':
         $usersController = new UsersController();
         $usersController->showUsers();
