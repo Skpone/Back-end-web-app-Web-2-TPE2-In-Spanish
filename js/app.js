@@ -15,7 +15,7 @@ let productFilterForm = document.querySelector('#productFilterForm');
 productFilterForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    assignSemanticURL(productFilterForm);
+    getProductsByProduct(productFilterForm, e);
 });
 
 let countryFilterForm = document.querySelector('#countryFilterForm');
@@ -184,6 +184,36 @@ async function deleteProduct(e) {
             //actualiza si se eliminó
             getProducts();
         }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function getProductsByProduct(form, e) {
+    e.preventDefault();
+
+    //obtenemos todos los datos del form
+    let formData = new FormData(form);
+    let params = formData.getAll('params');
+    try {
+        let response = await fetch(API_URL);
+        //products es un arreglo de objs
+        let products = await response.json();
+
+        //arreglo de objs filtrados
+        let filteredProducts = [];
+
+        //recorremos cada obj del arreglo
+        for (const obj of products) {
+            //si el producto del objeto == value del input
+            if (obj.product == params[0]) {
+                filteredProducts.push(obj);
+            }
+        }
+        
+        //asignamos los productos filtrados obtenidos
+        app.products = filteredProducts;
+
     } catch (e) {
         console.log(e);
     }

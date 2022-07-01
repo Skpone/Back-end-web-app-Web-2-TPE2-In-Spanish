@@ -21,8 +21,6 @@ class ProductsController
     {
         if($product && $type && $country && $ingredients && $price){
             $products = $this->model->getAllProductsByAdvancedSearch($product, $type, $country, $ingredients, $price);
-        }else if ($product) {
-            $products = $this->model->getAllProductsByProduct($product);
         } else if ($country) {
             $products = $this->model->getAllProductsByCountry($country);
         } else {
