@@ -2,14 +2,23 @@
     <div>
         <h1>{$product->product} info</h1>
         <ul>
+            <li id="product-id" data-id="{$product->id}">ID: {$product->id}</li>
             <li>Tipo: {$product->type}</li>
             <li>País de orígen: {$product->country}</li>
             <li>Ingredientes: {$product->ingredients}</li>
             <li>Precio: {$product->price}</li>
         </ul>
     </div>
-    <div>
-        <h2>Opiniones:</h2>
-        {include file="vue/productCommentsListVue.tpl"}
-    </div>
+    {include file="scoreFilterForm.tpl"}
+    {include file="vue/productCommentsListVue.tpl"}
+    {if isset($smarty.session.USER_ID)}
+        {include file="listForm.tpl"}
+    {/if}
+
+    {if isset($smarty.session.USER_ID)}
+        <script type="text/javascript" src="js/loggedComments.js"></script>
+    {else}
+        <script type="text/javascript" src="js/comments.js"></script>
+    {/if}
+
 {include file="footer.tpl"}

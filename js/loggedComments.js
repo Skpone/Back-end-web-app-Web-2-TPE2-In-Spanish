@@ -7,6 +7,13 @@ scoreFilterForm.addEventListener('submit', function(e){
     getCommentsByScore(scoreFilterForm);
 })
 
+let listForm = document.querySelector('#listForm');
+listForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    addComment(listForm);
+})
+
 //vue
 let API_URL = 'api/comments/';
 
@@ -65,6 +72,36 @@ async function getCommentsByScore(form) {
         console.log(e);
     }
 }
+
+async function addComment(form){
+    let formData = new FormData(form);
+    let params = formData.getAll('params');
+    
+    let comment = {
+        comment: params[0],
+        score: params[1],
+        id_product_fk: getProductID(),
+        id_user_fk: getUserID(),
+    }
+
+    try {
+        let response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(comment),
+    })
+
+    if (response.ok) {
+        //actualiza si se modificó
+        getComments();
+    }
+
+    } catch (e) {
+        console.log(e);
+    }
+} 
 
 async function getComments() {
     try {

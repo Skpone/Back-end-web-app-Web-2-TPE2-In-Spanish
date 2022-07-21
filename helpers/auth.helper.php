@@ -32,11 +32,26 @@ class AuthHelper
             die();
         }
     }
+    
     public function checkAdminLoggedIn()
     {   //si no es admin entonces se redirecciona
         if ($_SESSION['USER_ADMIN'] == 0) {
             header("Location: " . BASE_URL);
             die();
+        }
+    }
+    public function reLoginIfNotAdmin()
+    {
+        $email = $_SESSION['USER_EMAIL'];
+        $admin = $_SESSION['USER_ADMIN'];
+
+        $user = $this->model->getUser($email);
+
+        if (($admin != $user->admin)) {
+            $this->authHelper->login($user);
+            header("Location: " . BASE_URL);
+        } else {
+            header("Location: " . BASE_URL . "usersList");
         }
     }
     function logout()

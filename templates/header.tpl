@@ -21,7 +21,7 @@
                 {* <li><a href="">Home</a></li> <!-- puedo hacer un home aca--> *}
                 {if isset($smarty.session.USER_ID)} {* $_SESSION['USER_ID'] *}
                     <li>
-                        <a href="logout">({$smarty.session.USER_EMAIL}) Logout</a>
+                        <a href="logout" id="user-id" data-id="{$smarty.session.USER_ID}">({$smarty.session.USER_EMAIL}) Logout</a>
                     </li>
                 {else}
                     <li>
