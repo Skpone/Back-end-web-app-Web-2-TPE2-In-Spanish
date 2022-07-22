@@ -24,6 +24,14 @@ class ApiCommentsController{
         $this->view->response($comments);
     }
 
+    public function ordComments($params = null) {
+        $product = $params[':ID'];
+        $ord = $params[':ORD'];
+
+        $comments = $this->model->getAllCommentsOrd($product, $ord);
+        $this->view->response($comments);
+    }
+
     public function addComment($params = null) {
         $data = $this->getBody();
 

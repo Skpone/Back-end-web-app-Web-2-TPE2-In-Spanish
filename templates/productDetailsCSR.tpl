@@ -10,6 +10,8 @@
         </ul>
     </div>
     {include file="scoreFilterForm.tpl"}
+    {include file="ordFilterForm.tpl"}
+    <button id="resetCommentsBtn">Resetear</button>
     {include file="vue/productCommentsListVue.tpl"}
     {if isset($smarty.session.USER_ID)}
         {include file="listForm.tpl"}

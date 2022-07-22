@@ -7,6 +7,19 @@ scoreFilterForm.addEventListener('submit', function(e){
     getCommentsByScore(scoreFilterForm);
 })
 
+let ordFilterForm = document.querySelector('#ordFilterForm');
+ordFilterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    getCommentsORD(ordFilterForm);
+})
+
+let resetCommentsBtn = document.querySelector('#resetCommentsBtn');
+resetCommentsBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    getComments();
+})
+
 //vue
 let API_URL = 'api/comments/';
 
@@ -62,6 +75,23 @@ async function getCommentsByScore(form) {
         app.comments = filteredComments;
 
     } catch (e) {
+        console.log(e);
+    }
+}
+
+async function getCommentsORD(form) {
+
+    let formData = new FormData(form);
+    let params = formData.getAll('params');
+    let ord = params[0];
+
+    try{
+        let response = await fetch(`${API_URL}order/${getProductID()}/${ord}`);
+
+        let comments = await response.json();
+        
+        app.comments = comments;
+    }catch (e){
         console.log(e);
     }
 }
