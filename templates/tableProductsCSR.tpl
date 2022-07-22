@@ -1,6 +1,6 @@
 {include file="header.tpl"}
     {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}
-        {include file="tableForm.tpl"}
+        {include file="addProductForm.tpl"}
     {/if}
     {include file="productFilterForm.tpl"}
     {include file="countryFilterForm.tpl"}

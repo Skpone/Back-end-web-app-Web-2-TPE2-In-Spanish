@@ -7,11 +7,11 @@ scoreFilterForm.addEventListener('submit', function(e){
     getCommentsByScore(scoreFilterForm);
 })
 
-let ordFilterForm = document.querySelector('#ordFilterForm');
-ordFilterForm.addEventListener('submit', function(e){
+let ordScoreForm = document.querySelector('#ordScoreForm');
+ordScoreForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    getCommentsORD(ordFilterForm);
+    getCommentsORD(ordScoreForm);
 })
 
 let resetCommentsBtn = document.querySelector('#resetCommentsBtn');
@@ -20,11 +20,11 @@ resetCommentsBtn.addEventListener('click', function(e) {
     getComments();
 })
 
-let listForm = document.querySelector('#listForm');
-listForm.addEventListener('submit', function(e){
+let addCommentForm = document.querySelector('#addCommentForm');
+addCommentForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    addComment(listForm);
+    addComment(addCommentForm);
 })
 
 //vue

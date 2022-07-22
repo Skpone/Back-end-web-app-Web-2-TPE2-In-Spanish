@@ -23,17 +23,27 @@ countryFilterForm.addEventListener('submit', function(e){
     getProductsByCountry(countryFilterForm);
 });
 
-let tableForm = document.querySelector('#tableForm');
-tableForm.addEventListener('submit', function(e){
+let addProductForm = document.querySelector('#addProductForm');
+addProductForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    addProduct(tableForm);
+    addProduct(addProductForm);
 });
 
 //catalogo.html
 
 //vue
 
+Vue.filter('truncate', function (value, size) {
+    if (!value) return '';
+    value = value.toString();
+  
+    if (value.length <= size) {
+      return value;
+    }
+    return value.substr(0, size) + '...';
+  });
+  
 let API_URL = 'api/products/';
 
 let app = new Vue({
@@ -45,7 +55,7 @@ let app = new Vue({
     },
     methods: {
         modifyProduct: async function (e) {
-            modifyProduct(tableForm, e);
+            modifyProduct(addProductForm, e);
         },
         deleteProduct: async function (e) {
             deleteProduct(e);

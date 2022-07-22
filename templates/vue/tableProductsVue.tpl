@@ -16,7 +16,7 @@
                         <td><a :href="`productDetails/${product.id}`">{{product.product}}</a></td>
                         <td>{{product.type}}</td>
                         <td>{{product.country}}</td>
-                        <td>{{product.ingredients}}</td>
+                        <td>{{product.ingredients | truncate(8)}}</td>
                         <td>{{product.price}}</td>
 {/literal}
                         {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}

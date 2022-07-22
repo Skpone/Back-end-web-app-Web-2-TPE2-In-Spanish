@@ -7,11 +7,11 @@ scoreFilterForm.addEventListener('submit', function(e){
     getCommentsByScore(scoreFilterForm);
 })
 
-let ordFilterForm = document.querySelector('#ordFilterForm');
-ordFilterForm.addEventListener('submit', function(e){
+let ordScoreForm = document.querySelector('#ordScoreForm');
+ordScoreForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    getCommentsORD(ordFilterForm);
+    getCommentsORD(ordScoreForm);
 })
 
 let resetCommentsBtn = document.querySelector('#resetCommentsBtn');

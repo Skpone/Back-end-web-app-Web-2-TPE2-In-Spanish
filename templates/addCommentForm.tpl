@@ -1,4 +1,4 @@
-<form id="listForm">
+<form id="addCommentForm">
     <div>
         <label for="comment">Comentario:</label>
         <input type="text" name="params" required>    

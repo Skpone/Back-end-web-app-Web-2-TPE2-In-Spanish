@@ -1,4 +1,4 @@
-<form id="tableForm">
+<form id="addProductForm">
     <div>
         <label>Nombre Producto:</label><br>
         <input type="text" name="params" required>    
