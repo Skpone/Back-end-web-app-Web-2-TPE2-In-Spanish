@@ -64,22 +64,13 @@ async function getCommentsByScore(form) {
     
     let formData = new FormData(form);
     let params = formData.getAll('params');
+    let score = params[0];
     try {
-        let response = await fetch(API_URL + getProductID());
+        let response = await fetch(`${API_URL}filter/score/${getProductID()}/${score}`);
         
         let comments = await response.json();
 
-        let filteredComments = [];
-
-        for (const obj of comments) {
-            //si el puntaje del objeto == value del input (que es un puntaje elegido)
-            if (obj.score == params[0]) {
-                filteredComments.push(obj);
-            }
-        }
-        
-        //asignamos los productos filtrados obtenidos
-        app.comments = filteredComments;
+        app.comments = comments;
 
     } catch (e) {
         console.log(e);

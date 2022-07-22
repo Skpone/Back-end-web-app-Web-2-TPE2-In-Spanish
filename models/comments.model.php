@@ -30,6 +30,16 @@ class CommentsModel
         return $comments;
     }
 
+    function getAllCommentsByScore($product, $score)
+    {
+        $query = $this->db->prepare('SELECT a.id, b.email, a.comment, a.score, a.id_product_fk FROM comments a INNER JOIN users b ON a.id_user_fk = b.id WHERE id_product_fk = ? AND a.score = ?');
+        $query->execute([$product, $score]);
+
+        $comments = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $comments;
+    }
+
     function getCommentByID($id)
     {
         $query = $this->db->prepare('SELECT * FROM comments WHERE id = ?');

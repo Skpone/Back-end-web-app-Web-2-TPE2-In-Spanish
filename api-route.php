@@ -18,6 +18,7 @@ $router->addRoute('products/:ID', "PUT", 'ApiProductsController', 'modifyProduct
 //comments                 //este id del get es el id del producto
 $router->addRoute('comments/:ID', 'GET', 'ApiCommentsController', 'getComments');
 $router->addRoute('comments/order/:ID/:ORD', 'GET', 'ApiCommentsController', 'ordComments');
+$router->addRoute('comments/filter/score/:ID/:SCORE', 'GET', 'ApiCommentsController', 'filterCommentsByScore');
 $router->addRoute('comments', 'POST', 'ApiCommentsController', 'addComment');
 $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentsController', 'deleteComment');
 
