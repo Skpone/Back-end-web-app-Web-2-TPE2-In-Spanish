@@ -22,7 +22,7 @@ class CommentsModel
 
     function getAllCommentsOrd($product, $ord)
     {
-        $query = $this->db->prepare('SELECT a.id, b.email, a.comment, a.score, a.id_product_fk FROM comments a INNER JOIN users b ON a.id_user_fk = b.id WHERE id_product_fk = ? ORDER BY a.comment ' . $ord);
+        $query = $this->db->prepare('SELECT a.id, b.email, a.comment, a.score, a.id_product_fk FROM comments a INNER JOIN users b ON a.id_user_fk = b.id WHERE id_product_fk = ? ORDER BY a.score ' . $ord);
         $query->execute([$product]);
 
         $comments = $query->fetchAll(PDO::FETCH_OBJ);
