@@ -32,6 +32,14 @@ class ApiCommentsController{
         $this->view->response($comments);
     }
 
+    public function filterCommentsByScore($params = null) {
+        $product = $params[':ID'];
+        $score = $params[':SCORE'];
+        
+        $comments = $this->model->getAllCommentsByScore($product, $score);
+        $this->view->response($comments);
+    }
+
     public function addComment($params = null) {
         $data = $this->getBody();
 
