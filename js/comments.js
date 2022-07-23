@@ -60,10 +60,12 @@ async function getCommentsByScore(form) {
     let score = params[0];
     try {
         let response = await fetch(`${API_URL}filter/score/${getProductID()}/${score}`);
-        
-        let comments = await response.json();
 
-        app.comments = comments;
+        if (response.ok) {
+            let comments = await response.json();
+
+            app.comments = comments;   
+        }
 
     } catch (e) {
         console.log(e);
@@ -79,9 +81,11 @@ async function getCommentsORD(form) {
     try{
         let response = await fetch(`${API_URL}order/${getProductID()}/${ord}`);
 
-        let comments = await response.json();
+        if(response.ok){
+            let comments = await response.json();
         
-        app.comments = comments;
+            app.comments = comments;
+        }
     }catch (e){
         console.log(e);
     }
@@ -90,9 +94,11 @@ async function getCommentsORD(form) {
 async function getComments() {
     try {
         let response = await fetch(API_URL + getProductID());
-        let comments = await response.json();
+        if (response.ok) {
+            let comments = await response.json();
 
-        app.comments = comments;   
+            app.comments = comments;   
+        }   
     } catch (e) {
         console.log(e);
     }

@@ -29,6 +29,16 @@ class ProductsModel
         return $product;
     }
 
+    function getProductsByAdvancedSearch($product, $type, $country, $ingredients, $price)
+    {
+        $query = $this->db->prepare('SELECT * FROM products WHERE product = ? type = ? country = ? ingredients = ? price = ?');
+        $query->execute([$product, $type, $country, $ingredients, $price]);
+
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $products;
+    }
+
     function insertProduct($product, $type, $country, $ingredients, $price)
     {
         $query = $this->db->prepare('INSERT INTO products(product, type, country, ingredients, price) VALUES (?, ?, ?, ?, ?)');

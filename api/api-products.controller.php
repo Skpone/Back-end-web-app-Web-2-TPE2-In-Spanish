@@ -38,6 +38,25 @@ class ApiProductsController {
         }
     }
 
+    public function getProductsByAdvancedSearch() {
+        $data = $this->getBody();
+
+        $product = $data->product;
+        $type = $data->type;
+        $country = $data->country;
+        $ingredients = $data->ingredients;
+        $price = $data->price;
+
+        $products = $this->model->getProductsByAdvancedSearch($product, $type, $country, $ingredients, $price);
+        
+        if ($products) {
+            $this->view->response("Products founded");
+        } else {
+            $this->view->response("No products founded", 404);
+        }
+
+    }
+
     public function deleteProduct($params = null) {
         $id = $params[':ID'];
 
