@@ -29,9 +29,22 @@ class UsersController
     {
         $this->model->changeUserAdmin($id, $admin);
 
-        $this->authHelper->reLoginIfNotAdmin();
+        $this->reLoginIfNotAdmin();
     }
+    public function reLoginIfNotAdmin()
+    {
+        $email = $_SESSION['USER_EMAIL'];
+        $admin = $_SESSION['USER_ADMIN'];
 
+        $user = $this->model->getUser($email);
+            //si no es admin
+        if (($admin != $user->admin)) {
+            $this->authHelper->login($user);
+            header("Location: " . BASE_URL);
+        } else {
+            header("Location: " . BASE_URL . "usersList");
+        }
+    }
     public function deleteUser($id)
     {
         $this->model->deleteUser($id);

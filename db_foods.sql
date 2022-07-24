@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2022 a las 20:43:47
+-- Tiempo de generación: 24-07-2022 a las 21:45:35
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -26,11 +26,39 @@ USE `db_foods`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `comment` varchar(400) NOT NULL,
+  `score` tinyint(4) NOT NULL,
+  `id_product_fk` int(11) NOT NULL,
+  `id_user_fk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comments`
+--
+
+INSERT INTO `comments` (`id`, `comment`, `score`, `id_product_fk`, `id_user_fk`) VALUES
+(5, 'no me gusto', 1, 2, 4),
+(6, 'al final si me gusto', 4, 2, 4),
+(7, 'si a mi tambien', 5, 2, 3),
+(10, 'g8yu', 2, 1, 3),
+(11, 'ola', 2, 2, 3),
+(13, 'varria', 3, 2, 3),
+(15, 'adgsyu', 3, 2, 4),
+(16, 'me gusta los ramones', 4, 2, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
 CREATE TABLE `products` (
-  `id` tinyint(4) NOT NULL,
+  `id` int(4) NOT NULL,
   `product` varchar(40) NOT NULL,
   `type` varchar(40) NOT NULL,
   `country` varchar(20) NOT NULL,
@@ -44,7 +72,8 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product`, `type`, `country`, `ingredients`, `price`) VALUES
 (1, 'calzonne', 'clásico', 'italia', 'varios', '5465'),
-(2, 'pizza', 'romana', 'italia', 'varios', '7777');
+(2, 'pizza', 'romana', 'italia', 'varios', '7777'),
+(3, 'hot pot', 'clasico', 'china', 'cjasokdsak', '1234');
 
 -- --------------------------------------------------------
 
@@ -53,7 +82,7 @@ INSERT INTO `products` (`id`, `product`, `type`, `country`, `ingredients`, `pric
 --
 
 CREATE TABLE `users` (
-  `id` tinyint(4) NOT NULL,
+  `id` int(4) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `admin` tinyint(4) NOT NULL DEFAULT 0
@@ -72,6 +101,14 @@ INSERT INTO `users` (`id`, `email`, `password`, `admin`) VALUES
 --
 
 --
+-- Indices de la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_products_fk` (`id_product_fk`),
+  ADD KEY `id_users_fk` (`id_user_fk`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -88,16 +125,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

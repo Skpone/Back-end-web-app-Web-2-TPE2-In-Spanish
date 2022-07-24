@@ -14,7 +14,7 @@
         <h1>el producto no existe</h1>
     {/if}
     {include file="scoreFilterForm.tpl"}
-    {include file="ordScoreForm.tpl"}
+    {include file="ordByScoreForm.tpl"}
     <button id="resetCommentsBtn">Resetear</button>
     {include file="vue/productCommentsListVue.tpl"}
     {if isset($smarty.session.USER_ID)}

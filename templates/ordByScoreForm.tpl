@@ -1,4 +1,4 @@
-<form id="ordScoreForm">
+<form id="ordByScoreForm">
     <label for="score">Ordenar por Puntaje:</label>
     <select name="params" required>
         <option></option>

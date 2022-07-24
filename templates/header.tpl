@@ -17,7 +17,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="table">Catálogo</a></li>
+                <li><a href="tableProducts">Catálogo</a></li>
                 {* <li><a href="">Home</a></li> <!-- puedo hacer un home aca--> *}
                 {if isset($smarty.session.USER_ID)} {* $_SESSION['USER_ID'] *}
                     <li>

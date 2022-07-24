@@ -13,7 +13,7 @@ class UserView
     public function showUsers($users)
     {
         $this->smarty->assign('users', $users);
-        $this->smarty->assign('title', 'lista de usuarios registrados');
+        $this->smarty->assign('title', 'Lista de usuarios registrados');
 
         $this->smarty->display('templates/tableUsers.tpl');
     }

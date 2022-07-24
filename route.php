@@ -9,7 +9,7 @@ define('LOGIN', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] .
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'table';
+    $action = 'tableProducts';
 }
 $params = explode('/', $action);
 
@@ -31,7 +31,7 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->register();
         break;
-    case 'table':
+    case 'tableProducts':
         $productsController = new ProductsController();
         $productsController->showProducts();
         break;
