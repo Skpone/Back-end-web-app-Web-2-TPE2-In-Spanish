@@ -1,15 +1,15 @@
 <form id="addProductForm">
     <div>
-        <label>Nombre Producto:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Nombre Producto:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
     <div>
-        <label>Tipo:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Tipo:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
     <div>
-        <label>País:</label><br>
-        <select name="params" required>
+        <label class="form-label">País:</label>
+        <select name="params" class="form-control" required>
             <option></option>
             <option value="argentina">Argentina</option>
             <option value="italia">Italia</option>
@@ -17,12 +17,12 @@
         </select>
     </div>
     <div>
-        <label>Ingredientes:</label><br>
-        <textarea name="params"></textarea>
+        <label class="form-label">Ingredientes:</label>
+        <textarea name="params" required class="form-control"></textarea>
     </div>
     <div>
-        <label>Precio:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Precio:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
-    <button type="submit">Agregar</button>
+    <button type="submit" class="btn btn-primary">Agregar</button>
 </form>

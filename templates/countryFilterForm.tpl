@@ -1,10 +1,10 @@
 <form id="countryFilterForm">
-    <label>Filtrar por país:</label><br>
-    <select name="params" required>
+    <label class="form-label">Filtrar por país:</label>
+    <select name="params" class="form-select" required>
         <option></option>
         <option value="argentina">Argentina</option>
         <option value="italia">Italia</option>
         <option value="china">China</option>
     </select>
-    <button type="submit">Filtrar</button>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>

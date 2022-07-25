@@ -1,5 +1,5 @@
 <form id="productFilterForm">
-    <label>Filtrar por producto:</label><br>
-    <input type="text" name="params" required>
-    <button type="submit">Filtrar</button>
+    <label class="form-label">Filtrar por producto:</label>
+    <input type="text" name="params" class="form-select" required>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>

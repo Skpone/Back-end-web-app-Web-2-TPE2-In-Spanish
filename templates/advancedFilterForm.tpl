@@ -1,18 +1,18 @@
 <form id="advancedFilterForm">
     <div>
-        <label>Filtro avanzado</label><br>
+        <label class="form-label">Filtro avanzado</label>
     </div>
     <div>
-        <label>Producto:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Producto:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
     <div>
-        <label>Tipo:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Tipo:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
     <div>
-        <label>País:</label><br>
-        <select name="params" required>
+        <label class="form-label">País:</label>
+        <select name="params" class="form-select" required>
             <option></option>
             <option value="argentina">Argentina</option>
             <option value="italia">Italia</option>
@@ -20,12 +20,12 @@
         </select>
     </div>
     <div>
-        <label>Ingredientes:</label><br>
-        <textarea name="params"></textarea>
+        <label class="form-label">Ingredientes:</label>
+        <textarea name="params" required class="form-control"></textarea>
     </div>
     <div>
-        <label>Precio:</label><br>
-        <input type="text" name="params" required>    
+        <label class="form-label">Precio:</label>
+        <input type="text" name="params" class="form-control" required>    
     </div>
-    <button type="submit">Filtrar</button>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>
