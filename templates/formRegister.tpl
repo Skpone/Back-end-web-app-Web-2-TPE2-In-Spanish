@@ -9,7 +9,7 @@
         {if $error}
             {$error}
         {/if}
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-warning">Entrar</button>
     </form>
 
 {include file="footer.tpl"}

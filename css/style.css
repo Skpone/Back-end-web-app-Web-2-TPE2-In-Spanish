@@ -1,3 +1,7 @@
 * {
-    /*box-sizing: border-box; cambiarlo a border-box a ver que pasa*/
+    box-sizing: border-box;
+}
+#overflow {
+    height: 400px;
+    overflow-y: scroll;
 }

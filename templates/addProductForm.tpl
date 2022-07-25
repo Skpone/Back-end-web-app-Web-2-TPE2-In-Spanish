@@ -9,7 +9,7 @@
     </div>
     <div>
         <label class="form-label">País:</label>
-        <select name="params" class="form-control" required>
+        <select name="params" class="form-select" required>
             <option></option>
             <option value="argentina">Argentina</option>
             <option value="italia">Italia</option>

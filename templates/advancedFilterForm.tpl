@@ -1,18 +1,15 @@
-<form id="advancedFilterForm">
+<form class="form-floating" id="advancedFilterForm">
     <div>
-        <label class="form-label">Filtro avanzado</label>
+        <h4 class="form-label text-info">Filtro avanzado</h4>
     </div>
     <div>
-        <label class="form-label">Producto:</label>
-        <input type="text" name="params" class="form-control" required>    
+        <input type="text" name="params" class="form-control" placeholder="Producto" required>
     </div>
     <div>
-        <label class="form-label">Tipo:</label>
-        <input type="text" name="params" class="form-control" required>    
+        <input type="text" name="params" class="form-control" placeholder="Tipo" required>    
     </div>
     <div>
-        <label class="form-label">País:</label>
-        <select name="params" class="form-select" required>
+        <select name="params" class="form-select" required> {*seguir aca como hacer placeholder en select*}
             <option></option>
             <option value="argentina">Argentina</option>
             <option value="italia">Italia</option>
@@ -20,12 +17,10 @@
         </select>
     </div>
     <div>
-        <label class="form-label">Ingredientes:</label>
-        <textarea name="params" required class="form-control"></textarea>
+        <textarea name="params" class="form-control" placeholder="Ingredientes" required></textarea>
     </div>
     <div>
-        <label class="form-label">Precio:</label>
-        <input type="text" name="params" class="form-control" required>    
+        <input type="text" name="params" class="form-control" placeholder="Precio" required>    
     </div>
-    <button type="submit" class="btn btn-primary">Filtrar</button>
+    <button type="submit" class="btn btn-info">Filtrar</button>
 </form>
