@@ -23,6 +23,13 @@ countryFilterForm.addEventListener('submit', function(e){
     getProductsByCountry(countryFilterForm);
 });
 
+let resetProductsBtn = document.querySelector('#resetProductsBtn');
+resetProductsBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    console.log("onichan");
+    getProducts();
+})
+
 //catalogo.html
 
 //vue

@@ -8,6 +8,7 @@
         {include file="productFilterForm.tpl"}
         {include file="countryFilterForm.tpl"}
         {include file="advancedFilterForm.tpl"}
+        <button class="btn btn-secondary mb-2" id="resetProductsBtn">Resetear</button>
     </div>
     <div class="container">
         {include file="vue/tableProductsVue.tpl"}

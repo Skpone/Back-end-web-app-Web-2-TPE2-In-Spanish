@@ -30,6 +30,12 @@ addProductForm.addEventListener('submit', function(e){
     addProduct(addProductForm);
 });
 
+let resetProductsBtn = document.querySelector('#resetProductsBtn');
+resetProductsBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    getProducts();
+})
+
 //catalogo.html
 
 //vue

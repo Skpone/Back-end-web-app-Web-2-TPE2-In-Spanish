@@ -1,11 +1,9 @@
 {include file="header.tpl"}
 
-    <h1>Registrate!</h1>
+    <h2>Registrate!</h2>
     <form method="POST" action="verifyRegister">
-        <label for="email" class="form-label">Correo:</label>
-        <input type="text" name="email" class="form-control" required>
-        <label for="password" class="form-label">Contraseña:</label>
-        <input type="password" name="password" class="form-control" required minlength="8" maxlength="16">
+        <input type="text" name="email" class="form-control mb-3" placeholder="Correo Electronico" required>
+        <input type="password" name="password" class="form-control mb-3" placeholder="Contraseña" minlength="8" maxlength="16" required>
         {if $error}
             {$error}
         {/if}

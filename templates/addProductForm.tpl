@@ -1,28 +1,24 @@
 <form id="addProductForm">
-    <div>
-        <label class="form-label">Nombre Producto:</label>
-        <input type="text" name="params" class="form-control" required>    
+    <h4 class="form-label text-primary">Agregar Producto:</h4>
+    <div class="mb-3">
+        <input type="text" name="params" class="form-control" placeholder="Nombre Producto" required>    
     </div>
-    <div>
-        <label class="form-label">Tipo:</label>
-        <input type="text" name="params" class="form-control" required>    
+    <div class="mb-3">
+        <input type="text" name="params" class="form-control" placeholder="Tipo" required>    
     </div>
-    <div>
-        <label class="form-label">País:</label>
+    <div class="mb-3">
         <select name="params" class="form-select" required>
-            <option></option>
+            <option disabled>País</option>
             <option value="argentina">Argentina</option>
             <option value="italia">Italia</option>
             <option value="china">China</option>
         </select>
     </div>
-    <div>
-        <label class="form-label">Ingredientes:</label>
-        <textarea name="params" required class="form-control"></textarea>
+    <div class="mb-3">
+        <textarea name="params" class="form-control" placeholder="Ingredientes" required></textarea>
     </div>
-    <div>
-        <label class="form-label">Precio:</label>
-        <input type="text" name="params" class="form-control" required>    
+    <div class="mb-2">
+        <input type="text" name="params" class="form-control" placeholder="Precio" required>    
     </div>
-    <button type="submit" class="btn btn-primary">Agregar</button>
+    <button type="submit" class="btn btn-primary mb-2">Agregar</button>
 </form>
