@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2022 a las 21:45:35
+-- Tiempo de generación: 27-07-2022 a las 20:22:03
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -43,13 +43,14 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `comment`, `score`, `id_product_fk`, `id_user_fk`) VALUES
 (5, 'no me gusto', 1, 2, 4),
-(6, 'al final si me gusto', 4, 2, 4),
 (7, 'si a mi tambien', 5, 2, 3),
 (10, 'g8yu', 2, 1, 3),
 (11, 'ola', 2, 2, 3),
 (13, 'varria', 3, 2, 3),
 (15, 'adgsyu', 3, 2, 4),
-(16, 'me gusta los ramones', 4, 2, 3);
+(16, 'me gusta los ramones', 4, 2, 3),
+(282, 'no me gusto esta mal D:(', 2, 10, 3),
+(283, 'muy buenas', 5, 10, 6);
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `product`, `type`, `country`, `ingredients`, `price`) VALUES
 (1, 'calzonne', 'clásico', 'italia', 'varios', '5465'),
 (2, 'pizza', 'romana', 'italia', 'varios', '7777'),
-(3, 'hot pot', 'clasico', 'china', 'cjasokdsak', '1234');
+(3, 'hot pot', 'clasico', 'china', 'cjasokdsak', '1234'),
+(10, 'empanada', 'tucumana', 'argentina', 'carne picada, etc.', '300');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `admin`) VALUES
 (3, 'admin@demo.com', '$2y$10$clHZveLjJUkSB52Wkcjp3ebMYCpZjd2BbnbRi9GeTCAHU64CNW91y', 1),
-(4, 'user@demo.com', '$2y$10$2UCP9wlN8LIuZxswDjJxqufU8IVxSCdn8pUY69JVvAdV/pPAgWRYy', 0);
+(4, 'user@demo.com', '$2y$10$2UCP9wlN8LIuZxswDjJxqufU8IVxSCdn8pUY69JVvAdV/pPAgWRYy', 0),
+(6, 'random@random.com', '$2y$10$XgD91plkCPiHdSOB5sY9cOGVEU2654RS4dmgqyBk5MyebG/PhrO3m', 0);
 
 --
 -- Índices para tablas volcadas
@@ -128,19 +131,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
