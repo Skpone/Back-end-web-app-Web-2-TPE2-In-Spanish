@@ -14,33 +14,34 @@
     <title>COMIDA CASERA</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1 class="logo">COMIDA CASERA</h1>
-        </div>
-        <nav class="navbar">
-            <div class="container-fluid">
+    <header class="mx-5">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto fs-2" href="tableProducts">
+                    <img src="./img/png-transparent-pasta-italian-cuisine-spaghetti-computer-icons-menu-food-text-logo.png" alt="" width="47" height="42" class="d-inline-block align-text-top">
+                    COMIDA CASERA
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div id="navbarNav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="tableProducts">Catálogo</a></li>
-                        {if isset($smarty.session.USER_ID)} {* $_SESSION['USER_ID'] *}
-                            <li class="nav-item">
-                                <a class="nav-link" href="logout" id="user-id" data-id="{$smarty.session.USER_ID}">({$smarty.session.USER_EMAIL}) Logout</a>
-                            </li>
-                        {else}
-                            <li class="nav-item">
-                                <a class="nav-link" href="login">Ingresar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="register">Registrarse</a>
+                <div id="navbarNav" class="collapse navbar-collapse ms-5">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item fs-5"><a class="nav-link" href="tableProducts">Catálogo</a></li>
+                        {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}{*si USER_ADMIN es 1 entonces proceda. PD: el isset para q no me tire error, ns pq*}
+                            <li class="nav-item fs-5">
+                                <a class="nav-link" href="usersList">Usuarios<a>
                             </li>
                         {/if}
-                        {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}{*si USER_ADMIN es 1 entonces proceda. PD: el isset para q no me tire error, ns pq*}
-                            <li class="nav-item">
-                                <a class="nav-link" href="usersList">Usuarios<a>
+                        {if isset($smarty.session.USER_ID)} {* $_SESSION['USER_ID'] *}
+                            <li class="nav-item fs-5">
+                                <a class="nav-link" href="logout" id="user-id" data-id="{$smarty.session.USER_ID}">Logout ({$smarty.session.USER_EMAIL})</a>
+                            </li>
+                        {else}
+                            <li class="nav-item fs-5">
+                                <a class="nav-link" href="login">Ingresar</a>
+                            </li>
+                            <li class="nav-item fs-5">
+                                <a class="nav-link" href="register">Registrarse</a>
                             </li>
                         {/if}
                     </ul>

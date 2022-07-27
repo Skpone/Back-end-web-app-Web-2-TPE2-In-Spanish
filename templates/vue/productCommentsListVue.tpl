@@ -2,14 +2,14 @@
     <div class="mb-3" id="overflow">
 {literal}
         <div id="app">
-            <ul v-for="comment in comments">
-                <li>{{comment.email}}</li>
-                <li>{{comment.comment}}</li>
-                <li>{{comment.score}} estrellas</li>
+            <ul class="list-group mb-3" v-for="comment in comments">
+                <li class="list-group-item">{{comment.email}}</li>
+                <li class="list-group-item">{{comment.comment}}</li>
+                <li class="list-group-item">{{comment.score}} estrellas</li>
 {/literal}
                 {if isset($smarty.session.USER_ADMIN)&&($smarty.session.USER_ADMIN)}
                     {literal}
-                        <li><button class="btn btn-danger" v-on:click='deleteComment' :data-id='comment.id'>Borrar</button></li>
+                        <li class="mt-2"><button class="btn btn-danger" v-on:click='deleteComment' :data-id='comment.id'>Borrar</button></li>
                     {/literal}
                 {/if}
 {literal}
