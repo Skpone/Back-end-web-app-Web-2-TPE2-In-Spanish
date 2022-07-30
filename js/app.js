@@ -26,7 +26,6 @@ countryFilterForm.addEventListener('submit', function(e){
 let resetProductsBtn = document.querySelector('#resetProductsBtn');
 resetProductsBtn.addEventListener('click', function(e){
     e.preventDefault();
-    console.log("onichan");
     getProducts();
 })
 

@@ -93,19 +93,21 @@ class ApiProductsController {
         //id del product q vamos a modificar
         $id = $params[':ID'];
 
-        //datos que le vamos a modificar
-        $data = $this->getBody();
-
-        $product = $data->product;
-        $type = $data->type;
-        $country = $data->country;
-        $ingredients = $data->ingredients;
-        $price = $data->price;
+        $product = $this->model->getProductByID($id);
 
         if ($product) {
+            //datos que le vamos a modificar
+            $data = $this->getBody();
+
+            $product = $data->product;
+            $type = $data->type;
+            $country = $data->country;
+            $ingredients = $data->ingredients;
+            $price = $data->price;
+
             $this->model->modifyProduct($id, $product, $type, $country, $ingredients, $price);
             $this->view->response("Product modified successfully.");
         } else
             $this->view->response("Product id={$id} doesn't exist", 404);
-    }
+        }
 }
