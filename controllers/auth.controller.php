@@ -31,7 +31,7 @@ class AuthController
     }
     public function login()
     {
-        $this->authHelper->checkLoggedOut();
+        //$this->authHelper->checkLoggedOut(); no hacia falta pq ya se comprueba en la funcion de arriba
 
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
@@ -50,7 +50,7 @@ class AuthController
 
     public function register()
     {
-        $this->authHelper->checkLoggedOut();
+        //$this->authHelper->checkLoggedOut(); no hace falta
 
         if(!empty($_POST['email']) && !empty($_POST['password'])){
             $email = $_POST['email'];
