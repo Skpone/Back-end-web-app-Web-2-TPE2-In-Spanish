@@ -24,7 +24,7 @@ class ApiProductsController {
         $this->view->response($products);
     }
 
-    public function getProduct($params = null) {
+    public function getProduct($params) {
         //params es un arreglo asociativo que es generado x el Router
         $id = $params[':ID'];
 
@@ -57,7 +57,7 @@ class ApiProductsController {
 
     }
 
-    public function deleteProduct($params = null) {
+    public function deleteProduct($params) {
         $id = $params[':ID'];
 
         $product = $this->model->getProductByID($id);
@@ -88,7 +88,7 @@ class ApiProductsController {
             $this->view->response("Error creating product", 500);
     }
 
-    public function modifyProduct($params = null) {
+    public function modifyProduct($params) {
         
         //id del product q vamos a modificar
         $id = $params[':ID'];

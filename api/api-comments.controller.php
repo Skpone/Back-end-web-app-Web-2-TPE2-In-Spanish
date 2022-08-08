@@ -17,14 +17,14 @@ class ApiCommentsController{
         return json_decode($data);
     }
 
-    public function getComments($params = null) {
+    public function getComments($params) {
         $product = $params[':ID'];
 
         $comments = $this->model->getAllComments($product);
         $this->view->response($comments);
     }
 
-    public function ordComments($params = null) {
+    public function ordComments($params) {
         $product = $params[':ID'];
         $ord = $params[':ORD'];
 
@@ -32,7 +32,7 @@ class ApiCommentsController{
         $this->view->response($comments);
     }
 
-    public function filterCommentsByScore($params = null) {
+    public function filterCommentsByScore($params) {
         $product = $params[':ID'];
         $score = $params[':SCORE'];
         
@@ -58,7 +58,7 @@ class ApiCommentsController{
         }
     }
 
-    public function deleteComment($params = null) {
+    public function deleteComment($params) {
         $id = $params[':ID'];
 
         $comment = $this->model->getCommentByID($id);
