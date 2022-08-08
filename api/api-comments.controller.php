@@ -40,7 +40,7 @@ class ApiCommentsController{
         $this->view->response($comments);
     }
 
-    public function addComment($params = null) {
+    public function addComment() {
         $data = $this->getBody();
 
         $comment = $data->comment;

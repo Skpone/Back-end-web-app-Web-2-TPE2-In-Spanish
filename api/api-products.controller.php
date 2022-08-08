@@ -70,7 +70,7 @@ class ApiProductsController {
         }
     }
 
-    public function addProduct($params = null) {
+    public function addProduct() {
         $data = $this->getBody();
 
         $product = $data->product;
