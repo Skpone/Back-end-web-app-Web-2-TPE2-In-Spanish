@@ -16,6 +16,14 @@ class UserModel
         return $user;
     }
 
+    function getUserByID($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM users WHERE id = ?');
+        $query->execute([$id]);
+        $user = $query->fetch(PDO::FETCH_OBJ);
+        return $user;
+    }
+
     function insertUser($email, $password)
     {
         $query = $this->db->prepare('INSERT INTO users(id, email, password) VALUES (NULL, ?, ?)');

@@ -47,8 +47,14 @@ class UsersController
     }
     public function deleteUser($id)
     {
-        $this->model->deleteUser($id);
+        $user = $this->model->getUserByID($id);
 
-        header("Location: " . BASE_URL . "usersList");
+        if($_SESSION['USER_ID'] == $user->id){
+            $this->model->deleteUser($id); //tmb con esto podría hacer que no se pueda eliminar a sí mismo
+            $this->authHelper->logout();
+        }else{
+            $this->model->deleteUser($id);
+            header("Location: " . BASE_URL . "usersList");
+        }
     }
 }
