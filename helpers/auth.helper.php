@@ -43,9 +43,9 @@ class AuthHelper
 
     public function obtainAdminState()
     {
-        $admin = 1;
-        if ($_SESSION['USER_ADMIN'] == 0) {
-            $admin = null;
+        $admin = null;
+        if (isset($_SESSION['USER_ADMIN']) && ($_SESSION['USER_ADMIN'] == 1)) {
+            $admin = 1;
         }
         return $admin;
     }

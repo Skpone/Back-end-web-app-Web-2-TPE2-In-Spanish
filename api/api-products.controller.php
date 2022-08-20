@@ -54,7 +54,7 @@ class ApiProductsController {
                 $this->view->response("Product id=$id not found", 404);
             }
         }else{
-            $this->view->response("Unauthorized", 401);
+            $this->view->response("Unauthorized. Admin must be signed in", 401);
         }
     }
 
@@ -78,7 +78,7 @@ class ApiProductsController {
                 $this->view->response("Error creating product", 500);
             }
         }else{
-            $this->view->response("Unauthorized", 401);
+            $this->view->response("Unauthorized, Admin must be signed in", 401);
         }
     }
 
@@ -107,7 +107,7 @@ class ApiProductsController {
                 $this->view->response("Product id={$id} doesn't exist", 404);
             }
         }else{
-            $this->view->response("Unauthorized", 401);
+            $this->view->response("Unauthorized, Admin must be signed in", 401);
         }
     }
 }

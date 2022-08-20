@@ -62,7 +62,7 @@ class ApiCommentsController{
                 $this->view->response("Error creating comment", 500);
             }
         }else{
-            $this->view->response("Unauthorized", 401);
+            $this->view->response("Unauthorized, User or Admin must be signed in", 401);
         }
     }
 
@@ -80,7 +80,7 @@ class ApiCommentsController{
                 $this->view->response("Comment id=$id not found", 404);
             }
         }else{
-            $this->view->response("Unauthorized", 401);
+            $this->view->response("Unauthorized, Admin must be signed in", 401);
         }
     }
 }
