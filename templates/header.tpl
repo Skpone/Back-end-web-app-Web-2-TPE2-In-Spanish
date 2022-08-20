@@ -31,6 +31,9 @@
                             <li class="nav-item fs-5">
                                 <a class="nav-link" href="usersList">Usuarios<a>
                             </li>
+                            <li class="nav-item fs-5">
+                                <a class="nav-link" href="listCountries">Lista Países Disponibles<a>
+                            </li>
                         {/if}
                         {if isset($smarty.session.USER_ID)} {* $_SESSION['USER_ID'] *}
                             <li class="nav-item fs-5">

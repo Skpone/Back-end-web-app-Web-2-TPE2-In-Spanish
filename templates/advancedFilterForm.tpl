@@ -7,11 +7,11 @@
         <input type="text" name="params" class="form-control" placeholder="Tipo" required>    
     </div>
     <div class="mb-3">
-        <select name="params" class="form-select" required>
+        <select name="params" class="text-capitalize form-select" required>
             <option disabled>País</option>
-            <option value="argentina">Argentina</option>
-            <option value="italia">Italia</option>
-            <option value="china">China</option>
+            {foreach from=$countries item=$country}
+                <option value="{$country->country}">{$country->country}</option>
+            {/foreach}
         </select>
     </div>
     <div class="mb-3">

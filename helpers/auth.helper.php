@@ -40,6 +40,25 @@ class AuthHelper
             die();
         }
     }
+
+    public function obtainAdminState()
+    {
+        $admin = 1;
+        if ($_SESSION['USER_ADMIN'] == 0) {
+            $admin = null;
+        }
+        return $admin;
+    }
+
+    public function obtainCurrentUser()
+    {
+        $user = 1;
+        if (empty($_SESSION['USER_ID'])) {
+            $user = null;
+        }
+        return $user;
+    }
+
     function logout()
     {
         session_destroy();

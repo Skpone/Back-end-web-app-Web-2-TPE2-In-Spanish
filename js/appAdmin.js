@@ -77,7 +77,7 @@ async function addProduct (form) {
     let product = {
         product: params[0],
         type: params[1],
-        country: params[2],
+        id_country_fk: params[2],
         ingredients: params[3],
         price: params[4]
     }
@@ -158,28 +158,27 @@ async function getProductsByAdvancedSearch(form) {
     //obtenemos todos los datos del form
     let formData = new FormData(form);
     let params = formData.getAll('params');
-    let product = {
-        product: params[0],
-        type: params[1],
-        country: params[2],
-        ingredients: params[3],
-        price: params[4]
-    }
-
+    params = arrayToLowerCase(params);
+    
     try {
-            let response = await fetch(API_URL + 'search', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        })
+        let response = await fetch(API_URL);
+        //products es un arreglo de objs
+        let products = await response.json();
+        //arreglo de objs filtrados
+        let filteredProducts = [];
 
-        if (response.ok) {
-            let products = await response.json();
-            //asignamos los productos filtrados obtenidos
-            app.products = products;
+        //recorremos cada obj del arreglo
+        for (let obj of products) {
+            obj = objToLowerCase(obj);
+            //si el producto del objeto == values de todos los inputs
+            if ((obj.product == params[0])&&(obj.type == params[1])&&(obj.country == params[2])&&(obj.ingredients == params[3])&&(obj.price == params[4])) {
+                filteredProducts.push(obj);
+            }
         }
+        
+        //asignamos los productos filtrados obtenidos
+        app.products = filteredProducts;
+
     } catch (e) {
         console.log(e);
     }
@@ -190,6 +189,8 @@ async function getProductsByProduct(form) {
     //obtenemos todos los datos del form
     let formData = new FormData(form);
     let params = formData.getAll('params');
+    params = arrayToLowerCase(params);
+
     try {
             let response = await fetch(API_URL);
             if (response.ok) {
@@ -200,7 +201,8 @@ async function getProductsByProduct(form) {
                 let filteredProducts = [];
                 
                 //recorremos cada obj del arreglo
-                for (const obj of products) {
+                for (let obj of products) {
+                    obj = objToLowerCase(obj);
                     //si el producto del objeto == value del input
                     if (obj.product == params[0]) {
                         filteredProducts.push(obj);
@@ -220,6 +222,7 @@ async function getProductsByCountry(form) {
     //obtenemos todos los datos del form
     let formData = new FormData(form);
     let params = formData.getAll('params');
+    params = arrayToLowerCase(params);
     try {
         let response = await fetch(API_URL);
 
@@ -231,7 +234,8 @@ async function getProductsByCountry(form) {
             let filteredProducts = [];
 
             //recorremos cada obj del arreglo
-            for (const obj of products) {
+            for (let obj of products) {
+                obj = objToLowerCase(obj);
                 //si el producto del objeto == value del input
                 if (obj.country == params[0]) {
                     filteredProducts.push(obj);
@@ -259,6 +263,19 @@ async function getProducts() {
     } catch (e) {
         console.log(e);
     }
+}
+
+function objToLowerCase(obj) {
+    for (let i in obj) {
+        if(typeof obj[i] === 'string'){
+            obj[i] = obj[i].toLowerCase();
+        }
+    }
+    return obj;
+}
+function arrayToLowerCase(array){
+    let changedArray = array.map(i => i.toLowerCase());
+    return changedArray;
 }
 
 //ya lo invocamos asi la tabla con los productos no queda vacía

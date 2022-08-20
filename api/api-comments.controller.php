@@ -2,14 +2,17 @@
 
 require_once 'api/api.view.php';
 require_once 'models/comments.model.php';
+require_once 'helpers/auth.helper.php';
 
 class ApiCommentsController{
     private $model;
     private $view;
+    private $authHelper;
 
     function __construct() {
         $this->model = new CommentsModel();
         $this->view = new ApiView();
+        $this->authHelper = new AuthHelper();
     }
 
     private function getBody() {
@@ -41,33 +44,43 @@ class ApiCommentsController{
     }
 
     public function addComment() {
-        $data = $this->getBody();
+        $user = $this->authHelper->obtainCurrentUser();
+        if ($user) {
+            $data = $this->getBody();
 
-        $comment = $data->comment;
-        $score = $data->score;
-        $id_product_fk = $data->id_product_fk;
-        $id_user_fk = $data->id_user_fk;
+            $comment = $data->comment;
+            $score = $data->score;
+            $id_product_fk = $data->id_product_fk;
+            $id_user_fk = $data->id_user_fk;
 
-        $id = $this->model->insertComment($comment, $score, $id_product_fk, $id_user_fk);
-        
-        $comment = $this->model->getCommentByID($id);
-        if ($comment) {
-            $this->view->response($comment);
-        } else {
-            $this->view->response("Error creating comment", 500);
+            $id = $this->model->insertComment($comment, $score, $id_product_fk, $id_user_fk);
+            
+            $comment = $this->model->getCommentByID($id);
+            if ($comment) {
+                $this->view->response($comment);
+            } else {
+                $this->view->response("Error creating comment", 500);
+            }
+        }else{
+            $this->view->response("Unauthorized", 401);
         }
     }
 
     public function deleteComment($params) {
-        $id = $params[':ID'];
+        $admin = $this->authHelper->obtainAdminState();
+        if ($admin) {
+            $id = $params[':ID'];
 
-        $comment = $this->model->getCommentByID($id);
-        
-        if ($comment) {
-            $this->model->deleteComment($id);
-            $this->view->response("Comment id=$id removed successfully");
-        } else {
-            $this->view->response("Comment id=$id not found", 404);
+            $comment = $this->model->getCommentByID($id);
+            
+            if ($comment) {
+                $this->model->deleteComment($id);
+                $this->view->response("Comment id=$id removed successfully");
+            } else {
+                $this->view->response("Comment id=$id not found", 404);
+            }
+        }else{
+            $this->view->response("Unauthorized", 401);
         }
     }
 }

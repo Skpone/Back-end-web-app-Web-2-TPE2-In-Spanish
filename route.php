@@ -2,6 +2,7 @@
 require_once "controllers/auth.controller.php";
 require_once "controllers/products.controller.php";
 require_once "controllers/users.controller.php";
+require_once "controllers/countries.controller.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define('LOGIN', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/login');
@@ -50,6 +51,18 @@ switch ($params[0]) {
     case 'deleteUser':
         $usersController = new UsersController();
         $usersController->deleteUser($params[1]);
+        break;
+    case 'listCountries':
+        $countriesController = new CountriesController();
+        $countriesController->showCountries();
+        break;
+    case 'addCountry':
+        $countriesController = new CountriesController();
+        $countriesController->addCountry($params[1]/*name*/);
+        break;
+    case 'modifyCountry':
+        $countriesController = new CountriesController();
+        $countriesController->modifyCountry($params[1]/*id*/, $params[2]/*name*/);
         break;
     case 'logout':
         $authController = new AuthController();

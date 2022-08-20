@@ -10,7 +10,6 @@ $router = new Router();
 // tabla de ruteo
 //products
 $router->addRoute('products', 'GET', 'ApiProductsController', 'getProducts');
-$router->addRoute('products/search', 'GET', 'ApiProductsController', 'getProductsByAdvancedSearch');
 $router->addRoute('products/:ID', 'GET', 'ApiProductsController', 'getProduct');
 $router->addRoute('products/:ID', 'DELETE', 'ApiProductsController', 'deleteProduct');
 $router->addRoute('products', "POST", 'ApiProductsController', 'addProduct');
